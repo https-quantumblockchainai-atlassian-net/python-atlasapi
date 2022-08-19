@@ -24,35 +24,35 @@ from os import getenv
 class Settings:
     # Atlas APIs
     BASE_URL = getenv('BASE_URL', 'https://cloud.mongodb.com')
-    URI_STUB = getenv('URI_STUB', '/api/atlas/v1.0'))
+    URI_STUB = getenv('URI_STUB', '/api/atlas/v1.0')
 
     api_resources = {
         "Project": {
             "Get One Project": URI_STUB + "/groups/{GROUP_ID}"
         },
         "Monitoring and Logs": {
-            "Get all processes for group": "/api/atlas/v1.0/groups/{group_id}/processes?pageNum={"
+            "Get all processes for group": URI_STUB + "/groups/{group_id}/processes?pageNum={"
                                            "page_num}&itemsPerPage={items_per_page}",
-            "Get information for process in group": "/api/atlas/v1.0/groups/%s/processes/%s:&s?pageNum=%d"
+            "Get information for process in group": URI_STUB + "/groups/%s/processes/%s:&s?pageNum=%d"
                                                     "&itemsPerPage=%d",
-            "Get measurement for host": "/api/atlas/v1.0/groups/{group_id}/processes/{host}:{"
+            "Get measurement for host": URI_STUB + "/groups/{group_id}/processes/{host}:{"
                                         "port}/measurements?granularity={granularity}&period={period}&m={measurement}",
-            "Get list of databases for host": "/api/atlas/v1.0/groups/{GROUP-ID}/processes/{HOST}:{PORT}/databases",
-            "Get measurements of database for host.": "/api/atlas/v1.0/groups/{GROUP-ID}/processes/{HOST}:{"
+            "Get list of databases for host": URI_STUB + "/groups/{GROUP-ID}/processes/{HOST}:{PORT}/databases",
+            "Get measurements of database for host.": URI_STUB + "/groups/{GROUP-ID}/processes/{HOST}:{"
                                                       "PORT}/databases/{DATABASE-NAME}/measurements",
-            "Get list of disks or partitions for host.": "/api/atlas/v1.0/groups/{GROUP-ID}/processes/{HOST}:{"
+            "Get list of disks or partitions for host.": URI_STUB + "/groups/{GROUP-ID}/processes/{HOST}:{"
                                                          "PORT}/disks",
-            "Get measurements of for host": "/api/atlas/v1.0/groups/{GROUP-ID}/processes/{HOST}:{PORT}/disks/{"
+            "Get measurements of for host": URI_STUB + "/groups/{GROUP-ID}/processes/{HOST}:{PORT}/disks/{"
                                             "DISK-NAME}/measurements",
-            "Get the log file for a host in the cluster": "/api/atlas/v1.0/groups/{group_id}/clusters/{"
+            "Get the log file for a host in the cluster": URI_STUB + "/groups/{group_id}/clusters/{"
                                                           "host}/logs/{logname}",
-            "Get Available Disks for Process": "/api/atlas/v1.0/groups/{group_id}/processes/"
+            "Get Available Disks for Process": URI_STUB + "/groups/{group_id}/processes/"
                                                "{host}:{port}/disks",
-            "Get Measurements of a Disk for Process": "/api/atlas/v1.0/groups/{group_id}/processes/{host}:{port}/disks/"
+            "Get Measurements of a Disk for Process": URI_STUB + "/groups/{group_id}/processes/{host}:{port}/disks/"
                                                       "{disk_name}/measurements",
-            "Get Measurements of a Database for Process": "/api/atlas/v1.0/groups/{group_id}/processes/{host}:{port}/"
+            "Get Measurements of a Database for Process": URI_STUB + "/groups/{group_id}/processes/{host}:{port}/"
                                                           "databases/{database_name}/measurements",
-            "Get Available Databases for Process": "/api/atlas/v1.0/groups/{group_id}/processes/"
+            "Get Available Databases for Process": URI_STUB + "/groups/{group_id}/processes/"
                                                    "{host}:{port}/databases"
         },
         "Events": {
@@ -63,40 +63,40 @@ class Settings:
                                                         "min_date}"
         },
         "Clusters": {
-            "Get All Clusters": "/api/atlas/v1.0/groups/%s/clusters?pageNum=%d&itemsPerPage=%d",
-            "Get a Single Cluster": "/api/atlas/v1.0/groups/%s/clusters/%s",
-            "Delete a Cluster": "/api/atlas/v1.0/groups/%s/clusters/%s",
-            "Create a Cluster": "/api/atlas/v1.0/groups/{GROUP_ID}/clusters/",
-            "Modify a Cluster": "/api/atlas/v1.0/groups/{GROUP_ID}/clusters/{CLUSTER_NAME}",
-            "Test Failover": "/api/atlas/v1.0/groups/{GROUP_ID}/clusters/{CLUSTER_NAME}/restartPrimaries",
-            "Advanced Configuration Options": "/api/atlas/v1.0/groups/{GROUP_ID}/clusters/{"
+            "Get All Clusters": URI_STUB + "/groups/%s/clusters?pageNum=%d&itemsPerPage=%d",
+            "Get a Single Cluster": URI_STUB + "/groups/%s/clusters/%s",
+            "Delete a Cluster": URI_STUB + "/groups/%s/clusters/%s",
+            "Create a Cluster": URI_STUB + "/groups/{GROUP_ID}/clusters/",
+            "Modify a Cluster": URI_STUB + "/groups/{GROUP_ID}/clusters/{CLUSTER_NAME}",
+            "Test Failover": URI_STUB + "/groups/{GROUP_ID}/clusters/{CLUSTER_NAME}/restartPrimaries",
+            "Advanced Configuration Options": URI_STUB + "/groups/{GROUP_ID}/clusters/{"
                                               "CLUSTER_NAME}/processArgs",
 
         },
         "Database Users": {
-            "Get All Database Users": "/api/atlas/v1.0/groups/%s/databaseUsers?pageNum=%d&itemsPerPage=%d",
-            "Get a Single Database User": "/api/atlas/v1.0/groups/%s/databaseUsers/admin/%s",
-            "Create a Database User": "/api/atlas/v1.0/groups/%s/databaseUsers",
-            "Update a Database User": "/api/atlas/v1.0/groups/%s/databaseUsers/admin/%s",
-            "Delete a Database User": "/api/atlas/v1.0/groups/%s/databaseUsers/admin/%s"
+            "Get All Database Users": URI_STUB + "/groups/%s/databaseUsers?pageNum=%d&itemsPerPage=%d",
+            "Get a Single Database User": URI_STUB + "/groups/%s/databaseUsers/admin/%s",
+            "Create a Database User": URI_STUB + "/groups/%s/databaseUsers",
+            "Update a Database User": URI_STUB + "/groups/%s/databaseUsers/admin/%s",
+            "Delete a Database User": URI_STUB + "/groups/%s/databaseUsers/admin/%s"
         },
         "Alerts": {
-            "Get All Alerts": "/api/atlas/v1.0/groups/%s/alerts?pageNum=%d&itemsPerPage=%d",
-            "Get All Alerts with status": "/api/atlas/v1.0/groups/%s/alerts?status=%s&pageNum=%d&itemsPerPage=%d",
-            "Get an Alert": "/api/atlas/v1.0/groups/%s/alerts/%s",
-            "Acknowledge an Alert": "/api/atlas/v1.0/groups/%s/alerts/%s"
+            "Get All Alerts": URI_STUB + "/groups/%s/alerts?pageNum=%d&itemsPerPage=%d",
+            "Get All Alerts with status": URI_STUB + "/groups/%s/alerts?status=%s&pageNum=%d&itemsPerPage=%d",
+            "Get an Alert": URI_STUB + "/groups/%s/alerts/%s",
+            "Acknowledge an Alert": URI_STUB + "/groups/%s/alerts/%s"
         },
         "Whitelist": {
-            "Get All Whitelist Entries": "/api/atlas/v1.0/groups/%s/whitelist?pageNum=%d&itemsPerPage=%d",
-            "Get Whitelist Entry": "/api/atlas/v1.0/groups/%s/whitelist/%s",
-            "Create Whitelist Entry": "/api/atlas/v1.0/groups/%s/whitelist",
-            "Delete Whitelist Entry": "/api/atlas/v1.0/groups/%s/whitelist/%s"
+            "Get All Whitelist Entries": URI_STUB + "/groups/%s/whitelist?pageNum=%d&itemsPerPage=%d",
+            "Get Whitelist Entry": URI_STUB + "/groups/%s/whitelist/%s",
+            "Create Whitelist Entry": URI_STUB + "/groups/%s/whitelist",
+            "Delete Whitelist Entry": URI_STUB + "/groups/%s/whitelist/%s"
         },
         "Maintenance Windows": {
-            "Get Maintenance Window": "/api/atlas/v1.0/groups/{GROUP_ID}/maintenanceWindow",
-            "Update Maintenance Window": "/api/atlas/v1.0/groups/{GROUP_ID}/maintenanceWindow",
-            "Defer Maintenance Window": "/api/atlas/v1.0/groups/{GROUP_ID}/maintenanceWindow/defer",
-            "Delete Maintenance Window": "/api/atlas/v1.0/groups/{GROUP_ID}/maintenanceWindow"
+            "Get Maintenance Window": URI_STUB + "/groups/{GROUP_ID}/maintenanceWindow",
+            "Update Maintenance Window": URI_STUB + "/groups/{GROUP_ID}/maintenanceWindow",
+            "Defer Maintenance Window": URI_STUB + "/groups/{GROUP_ID}/maintenanceWindow/defer",
+            "Delete Maintenance Window": URI_STUB + "/groups/{GROUP_ID}/maintenanceWindow"
         },
         "Organization API Keys": {
             "Get all Organization API Keys associated with org": URI_STUB + "/orgs/{GROUP_ID}/apiKeys",
